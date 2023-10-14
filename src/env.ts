@@ -27,5 +27,10 @@ export const env = {
     app: {
         prefix: getEnvString('APP_PREFIX'),
         port: toNumber(getEnvString('APP_PORT')),
+        dirs: {
+            controllers: getEnvString('CONTROLLERS_DIR'),
+            middlewares: getEnvString('MIDDLEWARES_DIR'),
+        },
+        
     }
 }

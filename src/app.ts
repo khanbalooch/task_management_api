@@ -1,8 +1,7 @@
-import express from 'express';
+import { Application } from './lib/Application';
 
-
-const app = express();
-
-app.listen(3000, () => {
-    console.log('Application started');
-});
+(async function bootStrapApplication(){
+    let app = new Application();
+    let server = await app.start();
+    console.log('Application Started');
+})();
