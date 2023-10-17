@@ -1,6 +1,8 @@
 import express, { Application as ExpressApplication } from 'express';
 import { env } from '../env';
 import { loadClassesfromDir } from '../utils';
+import * as bodyParser from 'body-parser';
+import { errorHandlerMiddleware } from '../api/middlewares/errorHandlerMiddleware';
 
 export class Application {
     private app: ExpressApplication;
@@ -9,13 +11,16 @@ export class Application {
         this.app = express();
         this.initMiddlewares();
         this.initControllers();
+        this.initErrorHandler();
     }
 
     private initMiddlewares() {
-        const middlewares = loadClassesfromDir(env.app.dirs.middlewares, /(.+Middleware)\.ts$/);
-        middlewares.forEach( middleware => {
-            this.app.use((new middleware()).use);
-        });
+        this.app.use(bodyParser.json());
+        // const middlewares = loadClassesfromDir(env.app.dirs.middlewares, /(.+Middleware)\.ts$/);
+        // console.log(middlewares, 'middleware');
+        // middlewares.forEach( middleware => {
+        //     this.app.use((middleware));
+        // });
     }
 
     private initControllers() {
@@ -25,7 +30,15 @@ export class Application {
         });
     }
 
+    private  initErrorHandler() {
+        this.app.use(errorHandlerMiddleware);
+    }
+
     public async start() {
         return this.app.listen(env.app.port);
+    }
+
+    public get App(): ExpressApplication {
+        return this.app;
     }
 }
