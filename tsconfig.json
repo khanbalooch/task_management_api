@@ -13,6 +13,6 @@
       "forceConsistentCasingInFileNames": true,
       "strictPropertyInitialization": false,
       "moduleResolution": "node",
-      "experimentalDecorators": true,
+      "experimentalDecorators": true
     }
   }

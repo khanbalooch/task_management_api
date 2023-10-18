@@ -17,7 +17,6 @@ export class TaskController extends RoutingController {
         this.router.put('/task/:id', validateBody(Task, { skipMissingProperties: true }), this.updateTask.bind(this));
         this.router.delete('/task/:id', this.deleteTask.bind(this));
         this.router.get('/tasks', this.getAllTasks.bind(this));
-        this.router.get(TASKS_PATH, this.getAllTasks.bind(this));
     }
 
     public async createTask(req: Request, res: Response, next: NextFunction): Promise<any> {
