@@ -1,0 +1,28 @@
+{
+    "verbose": true,
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+        "src/api/controllers/**/*{ts,js}",
+        "**/node_modules/**"
+    ],
+    "transform": {
+      "(.ts)": "<rootDir>/test/preprocessor.js"
+    },
+    "testMatch": [
+        "**/test/**/*test.ts"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>[/\\\\](dist|coverage|node_modules)[/\\\\]",
+      "_\\w*.\\w+$"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+        "./test/unit/lib/setup.ts"
+    ]
+  }

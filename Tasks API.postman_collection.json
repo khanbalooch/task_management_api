@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "c9de24bd-1715-4b41-a189-bbf7cc675352",
+		"name": "Tasks API",
+		"description": "StartFragmentRESTful API for a simple task management system. Users can create tasks, assign them to other users, mark tasks as complete, and categorize tasks.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2679744"
+	},
+	"item": [
+		{
+			"name": "Create New Task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Test Task\",\r\n    \"description\": \"Test Description\",\r\n    \"creationDate\": \"2023-10-17\",\r\n    \"dueDate\": \"2023-11-11\",\r\n    \"assignedTo\": \"Ashfaq\",\r\n    \"category\": \"Test\",\r\n    \"status\": \"Pending\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/ncle/task",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ncle",
+						"task"
+					]
+				},
+				"description": "Creates new task using data from body (JSON)."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Task By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/ncle/task/pTs2GKGG5UNqZyS35DZ9pT",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ncle",
+						"task",
+						"pTs2GKGG5UNqZyS35DZ9pT"
+					]
+				},
+				"description": "Retrieve task using id"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task By Id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"category\": \"harvest\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/ncle/task/eRjn7cYP2sMu8S2VMASKd9",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ncle",
+						"task",
+						"eRjn7cYP2sMu8S2VMASKd9"
+					]
+				},
+				"description": "Update task by Id. Update body to be in body (JSON)"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task By Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/ncle/task/6mLXVqCv6jCGn5kbKJrW5y",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ncle",
+						"task",
+						"6mLXVqCv6jCGn5kbKJrW5y"
+					]
+				},
+				"description": "Deletes the task by id"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/ncle/tasks",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ncle",
+						"tasks"
+					]
+				},
+				"description": "Retrieves all tasks"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Tasks By assignedTo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/ncle/tasks?assignedTo=Ibrahim",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ncle",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "assignedTo",
+							"value": "Ibrahim"
+						}
+					]
+				},
+				"description": "Retrieves all tasks with filter assignedTo in query params"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Tasks By category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/ncle/tasks?category=test",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ncle",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "test"
+						}
+					]
+				},
+				"description": "Retrieves all tasks with filter category in query params"
+			},
+			"response": []
+		}
+	]
+}
