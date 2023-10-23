@@ -87,5 +87,6 @@ npm run build
 npm run lint
 npm run lint-and-fix
 ```
-
+#### Postman
+All the api endpoints are documented in postman colllection and are available in file Tasks Api.postman_collection.json in root directory
 ###End
