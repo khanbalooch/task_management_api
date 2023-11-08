@@ -3,6 +3,7 @@ import { env } from '../env';
 import { loadClassesfromDir } from '../utils';
 import * as bodyParser from 'body-parser';
 import { errorHandlerMiddleware } from '../api/middlewares/errorHandlerMiddleware';
+import cors from 'cors';
 
 export class Application {
     private app: ExpressApplication;
@@ -16,6 +17,7 @@ export class Application {
 
     private initMiddlewares() {
         this.app.use(bodyParser.json());
+        this.app.use(cors())
         // const middlewares = loadClassesfromDir(env.app.dirs.middlewares, /(.+Middleware)\.ts$/);
         // console.log(middlewares, 'middleware');
         // middlewares.forEach( middleware => {
