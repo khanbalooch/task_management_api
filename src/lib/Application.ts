@@ -1,6 +1,6 @@
 import express, { Application as ExpressApplication } from 'express';
 import { env } from '../env';
-import { loadClassesfromDir } from '../utils';
+import { getControllersFromDir, loadClassesfromDir } from '../utils';
 import * as bodyParser from 'body-parser';
 import { errorHandlerMiddleware } from '../api/middlewares/errorHandlerMiddleware';
 import cors from 'cors';
@@ -26,7 +26,7 @@ export class Application {
     }
 
     private initControllers() {
-        const controllers = loadClassesfromDir(env.app.dirs.controllers, /(.+Controller)\.ts$/);
+        const controllers = getControllersFromDir();// loadClassesfromDir(env.app.dirs.controllers, /(.+Controller)\.ts$/);
         controllers.forEach( controller => {
             this.app.use(env.app.prefix, (new controller()).router);
         });
@@ -44,3 +44,4 @@ export class Application {
         return this.app;
     }
 }
+

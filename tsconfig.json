@@ -1,10 +1,10 @@
 {
     "compilerOptions": {
-      "target": "es5",                          
+      "target": "ES6",                          
       "module": "commonjs",                    
       "lib": ["es6"],                     
       "allowJs": true,
-      "outDir": "build",                          
+      "outDir": "dist/src",                          
       "rootDir": "src",
       "strict": true,         
       "noImplicitAny": true,
@@ -14,5 +14,6 @@
       "strictPropertyInitialization": false,
       "moduleResolution": "node",
       "experimentalDecorators": true
-    }
+    },
+    "include": ["src/**/*.ts"],
   }

@@ -3,7 +3,7 @@ import { RoutingController } from '../../lib/RoutingController';
 import { ConversionService } from '../services/ConversionService';
 import { ResponseType } from '../../lib/types/ResponseTypes';
 
-export class ConversionController extends RoutingController {
+export default class ConversionController extends RoutingController {
 
     private conversionService: ConversionService = new ConversionService();
     
