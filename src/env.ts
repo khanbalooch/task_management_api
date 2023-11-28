@@ -26,6 +26,6 @@ export const env = {
 
     app: {
         prefix: getEnvString('APP_PREFIX'),
-        port: toNumber(getEnvString('APP_PORT')),
+        port: toNumber(getEnvString('PORT')),
     }
 }
