@@ -10,8 +10,8 @@ enum APP_ENV {
 }
 
 
-const getEnvFile = (appEnv: string | undefined) => (process.env.NODE_ENV === 'test' ? 'env.test' : appEnv && Object.keys(APP_ENV).includes(appEnv.toUpperCase())  ? `ncle-${appEnv.toLowerCase()}.env` : '.env');
-const envFile = getEnvFile(process.env.APP_ENV);
+const getEnvFile = (appEnv: string | undefined) => (process.env.NODE_ENV === 'test' ? 'env.test' : appEnv && Object.keys(APP_ENV).includes(appEnv.toUpperCase())  ? `${appEnv.toLowerCase()}.env` : '.env');
+const envFile = getEnvFile(process.env.NODE_ENV);
 
 dotenv.config({ path: path.join( process.cwd(), envFile ) });
 console.log('ENV file used', envFile);
