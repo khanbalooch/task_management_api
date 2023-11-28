@@ -22,15 +22,10 @@ export const env = {
     isDevelopment: process.env.NODE_ENV === 'development',
     isTest: process.env.NODE_ENV === 'test',
     isStaging: process.env.NODE_ENV === 'staging',
-    isProduction: process.env.NODE_ENV || 'productrion',
+    isProduction: process.env.NODE_ENV || 'production',
 
     app: {
         prefix: getEnvString('APP_PREFIX'),
         port: toNumber(getEnvString('APP_PORT')),
-        dirs: {
-            controllers: getEnvString('CONTROLLERS_DIR'),
-            middlewares: getEnvString('MIDDLEWARES_DIR'),
-        },
-        
     }
 }

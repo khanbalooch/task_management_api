@@ -28,7 +28,9 @@ export class Application {
     private initControllers() {
         const controllers = getControllersFromDir();// loadClassesfromDir(env.app.dirs.controllers, /(.+Controller)\.ts$/);
         controllers.forEach( controller => {
-            this.app.use(env.app.prefix, (new controller()).router);
+            const router = (new controller()).router;
+            this.app.use(env.app.prefix, router);
+            console.log("Registered Path", { prefix: env.app.prefix, path: router.stack });
         });
     }
 
